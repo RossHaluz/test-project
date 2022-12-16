@@ -1,0 +1,26 @@
+.galery__list--item{
+    width: 270px;
+}
+
+.film-thumb{
+    height: 420px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.galery__list--img{
+    height: 100%;
+    object-fit: cover;
+}
+
+.filn-wrapp{
+    margin-top: 12px;
+}
+
+.galery__list--title{
+    text-transform: uppercase;
+}
+
+.galery__list--desc{
+    color: var(--orange-color);
+}

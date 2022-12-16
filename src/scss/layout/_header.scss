@@ -1,0 +1,134 @@
+.header {
+  background-image: url('../images/bg/desk/bg-desk.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 216px;
+  padding-top: 40px;
+}
+
+.header__cover {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__list {
+  display: flex;
+}
+
+.header__list--item {
+  margin-right: 40px;
+}
+.header__list--item:last-child {
+  margin-right: 0;
+}
+
+.header__list--link {
+  color: var(--white-color);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  // position: absolute;
+}
+.header__list--link--current::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #ff001b;
+  display: block;
+  // position: absolute;
+  left: 0;
+}
+
+.header__form {
+  display: flex;
+  justify-content: center;
+  margin-top: 41px;
+}
+
+.header__form--input {
+  height: 20px;
+  border: none;
+  border-bottom: 1px solid white;
+  background: none;
+  width: 394px;
+  outline: none;
+  color: #fff;
+  font-size: 13px;
+}
+.header__form--cover {
+  position: relative;
+}
+
+.form-btn {
+  background: none;
+  border: none;
+  position: absolute;
+  left: 94%;
+  cursor: pointer;
+}
+
+
+.switchColor {
+  display: block;
+  margin-left: auto;
+  top: 34px;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+input[type='checkbox']:checked {
+  background-color: #757575;
+}
+input[type='checkbox']:checked .nigth img{
+  fill:#fff;
+}
+
+.day img {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  bottom: 77%;
+  right: 0;
+}
+
+.nigth img {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  bottom: 77%;
+  right: 0;
+}
+.switch-cover{
+  position: relative;
+}
+input[type='checkbox']::before{
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #757575;
+  border-radius: 90%;
+  top: 5px;
+  left: 5px;
+  right: -15px;
+  transition: .5s ease;
+}
+
+input[type='checkbox']:checked:before{
+  position: absolute;
+  transform: translateX(30px);
+  background-color: #fff;
+}
+
+.dark{
+  background-color: #757575;
+  color: white;
+}
