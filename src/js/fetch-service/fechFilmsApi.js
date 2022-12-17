@@ -1,35 +1,135 @@
 import axios from 'axios';
 
-class FetchApiMovies{
-    #API_KEY;
-    #Total_page;
-    constructor() {
-        this.#API_KEY = 'f896ccabafb5d2939071b9f1aa9e42c1';
-        this.BASE_URL = 'https://api.themoviedb.org/3';
-        this.query = '';
-        this.page = 1;
-    }
+class FetchFilmsApi {
+  #API_KEY;
+  #totalPages;
+  constructor(config = { baseURL: 'https://api.themoviedb.org/3/' }) {
+    this.query = '';
+    this.config = config;
+    this.#API_KEY = 'f896ccabafb5d2939071b9f1aa9e42c1';
+    this.page = 1;
+    this.#totalPages = null;
+  }
+  async fetchWithAllFilmsData({ mediaType, timeWindow }) {
+    const resp = await axios.get(
+      `trending/${mediaType}/${timeWindow}?api_key=${this.#API_KEY}&page=${
+        this.page
+      }`,
+      this.config
+    );
 
-    async serchFilm() {
-        const resp = await axios.get(`${this.BASE_URL}/search/movie?api_key=${this.#API_KEY}&language=en-US&page=${this.page}&include_adult=false&query=${this.query}`)
+    return resp;
+  }
+  async getAllFilmsData({ mediaType = 'movie', timeWindow = 'day' }) {
+    try {
+      const resp = await this.fetchWithAllFilmsData({
+        mediaType,
+        timeWindow,
+      });
+
+      this.#totalPages = resp.data.total_pages;
+      //
+      //
+      return resp;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async fetchWithCurrentFilm({ mediaType, id }) {
+    const resp = await axios.get(
+      `${mediaType}/${id}?api_key=${this.#API_KEY} `,
+      this.config
+    );
+
+    return resp;
+  }
+  async getCurrentFilm({ mediaType = 'movie', id }) {
+    try {
+      const resp = await this.fetchWithCurrentFilm({
+        mediaType,
+        id,
+      });
+      //
+      //
+      return resp;
+    } catch (err) {
+      console.log(err);
+    }
+  }
     
-        return resp.data;
+  async fetchWithSearchFilmData({ mediaType, lang, page, include_adult }) {
+    const resp = await axios.get(
+      `search/${mediaType}?api_key=${this.#API_KEY}&language=${lang}&query=${
+        this.query
+      }&page=${page}&include_adult=${include_adult}`,
+      this.config
+    );
+    return resp;
+  }
+
+  //
+  //
+  async fetchGenresList({ mediaType, genreType, page }) {
+    const resp = await axios.get(
+      `genre/${mediaType}/${genreType}?api_key=${this.#API_KEY}&page=${page}`,
+      this.config
+    );
+    return resp;
+  }
+  //
+  async getGenresList({ mediaType = 'movie', genreType = 'list', page = '1' }) {
+    try {
+      const resp = await this.fetchGenresList({ mediaType, genreType, page });
+      return resp;
+    } catch (error) {
+      console.log(error);
     }
+  }
+  //
 
-    async getTrendingMovie() {
-        const resp = await axios.get(`${this.BASE_URL}/trending/movie/day?api_key=${this.#API_KEY}&language=en-US&page=${this.page}&include_adult=false`)
-
-        return resp.data;
+  async getSearchFilmsData({
+    mediaType = 'movie',
+    lang = 'en-US',
+    page = 1,
+    include_adult = false,
+  }) {
+    try {
+      const resp = await this.fetchWithSearchFilmData({
+        mediaType,
+        lang,
+        page,
+        include_adult,
+      });
+      return resp;
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-    get queryValue() {
-        return this.query;
-    }
-
-    set queryValue(newValue) {
-        this.query = newValue;
-    }
-
+  incrementPage({ step = 1 }) {
+    this.page += step;
+  }
+  get actualPage() {
+    return this.page;
+  }
+  set actualPage(newPage) {
+    this.page = newPage;
+  }
+  get actualQuery() {
+    return this.query;
+  }
+  set actualQuery(newQuery) {
+    return (this.query = newQuery.trim());
+  }
+  get totalPages() {
+    return this.#totalPages;
+  }
+  set totalPages(newValue) {
+    this.#totalPages = newValue;
+  }
 }
+// const api = new FetchFilmsApi();
 
-export default FetchApiMovies
+// // console.log((api.actualQuery = 'asfas       s     '));
+// console.log(api.config);
+export default FetchFilmsApi;

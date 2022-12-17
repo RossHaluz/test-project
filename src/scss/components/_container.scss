@@ -1,16 +1,17 @@
 .container {
-    margin: 0 auto;
-    padding: 0 15px;
+  margin: 0 auto;
+  padding: 0 20px;
 
-    @media screen and (max-width: 480px) {
-        width: 480px;
-    }
+  @include mq(mob-only) {
+    max-width: 320px;
+  }
 
-    @media screen and (min-width: 768px) {
-        width: 768px;
-    }
+  @include mq(tab) {
+    width: 768px;
+    padding: 0 32px;
+  }
 
-    @media screen and (min-width: 1200px) {
-        width: 1200px;
-    }
+  @include mq(desk) {
+    width: 1280px;
+  }
 }

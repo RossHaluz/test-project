@@ -1,44 +1,44 @@
 <header class="header">
-  <div class="container">
-    <div class="header__cover">
-      <a href="" class="logo link">Filmoteka</a>
-
-      <ul class="header__list list">
-        <li class="header__list--item">
-          <a
-            href="#"
-            class="header__list--link header__list--link--current active link"
-            >Home</a
-          >
-        </li>
-        <li class="header__list--item">
-          <a href="#" class="header__list--link link">My librery</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="switch-cover">
-      <input type="checkbox" class="switchColor" />
-      <!-- <div class="day">
-        <img src="./images/thermsDay/sun-light.svg" alt="" />
+  <div class="header__container container">
+    <div class="header__body">
+      <a class="logo link" href="./">
+        <svg class="logo__icon" width="24" height="24">
+          <use href="./img/svg/sprite.svg#logo"></use>
+        </svg>
+        <span class="logo__txt">Filmoteka</span>
+      </a>
+      <div class="header__nav">
+        <nav class="nav">
+          <ul class="nav__list list">
+            <li class="nav__item">
+              <a
+                class="nav__link link current nav__link--current"
+                href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav__item">
+              <a class="nav__link link" href="./library.html">my library</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div class="nigth">
-        <img src="./images/thermsDay/moon-light.svg" alt="" />
-      </div> -->
     </div>
-
-    <form action="submit" class="header__form js-form">
-      <div class="header__form--cover">
+    <div class="header__search search-form">
+      <form action="#" class="search-form__bar">
         <input
+          class="search-form__input"
           type="text"
-          name="searchInput"
+          autocomplete="off"
+          name="filmname"
           placeholder="Movie search"
-          class="header__form--input js-input"
         />
-        <button type="submit" class="form-btn">
-          <img src="./images/search/search.svg" alt="" width="12" height="12" />
+        <button type="submit" class="search-form__btn">
+          <svg width="12" height="12">
+            <use href="./img/svg/sprite.svg#search"></use>
+          </svg>
         </button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </header>
