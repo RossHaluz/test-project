@@ -1,16 +1,16 @@
 .header{
-  background-image: url("../img/home/home-bcg-lg.svg");
+  background-image: url("../img/home/heder-lg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 210px;
   padding-top: 40px;
 
     @include mq(tab){
-      background-image: url("../img/home/home-bcg-md.svg");
+      background-image: url("../img/home/header-tab.jpg");
     }
 
     @include mq(mob-only){
-      background-image: url("../img/home/home-bcg-sm.svg");
+      background-image: url("../img/home/header-mob.jpg");
     }
 
 }
