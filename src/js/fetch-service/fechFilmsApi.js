@@ -8,6 +8,7 @@ class FetchFilmsApi {
     this.query = '';
     this.page = 1;
     this.total_page = null;
+    this.id = null;
   }
 
 async  getMouvieSearch () {
@@ -18,6 +19,12 @@ async  getMouvieSearch () {
   
   async getTrendingMovies() {
     const resp = await axios.get(`${this.BASE_URL}/trending/movie/day?api_key=${this.#API_KEY}`);
+
+    return resp.data;
+  }
+
+  async getDateilsMovieById() {
+    const resp = await axios.get(`${this.BASE_URL}/movie/${this.id}?api_key=${this.#API_KEY}&language=en-US`)
 
     return resp.data;
   }
@@ -33,6 +40,14 @@ async  getMouvieSearch () {
 
   set serchValue(newValue) {
     this.query = newValue;
+  }
+
+  get getIdFilm() {
+    return this.id;
+  }
+
+  set getIdFilm(newId) {
+    this.id = newId;
   }
 }
 

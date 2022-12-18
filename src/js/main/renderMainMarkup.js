@@ -13,9 +13,9 @@ function getTrendingMoviesAndRender() {
 }
 
 function renderMovies(arr) {
-  const markup = arr.map(({ poster_path, title, release_date }) => `
+  const markup = arr.map(({ poster_path, title, release_date, id}) => `
      <li class="galery-list__item card-set-iteam">
-          <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" class="galery-list__img" />
+          <img data-id=${id} src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" class="galery-list__img" />
           <h3 class="galery-list__title">${title}</h3>
           <p class="galery-list__desc">
             Science Fiction, Action, Adventure, Drama | ${splitDate(release_date)}
