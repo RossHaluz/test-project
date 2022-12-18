@@ -68,6 +68,8 @@ position: relative;
 }
 
 input[type="checkbox"]{
+  display: block;
+  margin-left: auto;
   position: relative;
   width: 162px;
   height: 60px;
@@ -90,4 +92,9 @@ input[type="checkbox"]::before{
 
 input[type="checkbox"]:checked:before{
   transform: translateX(103px);
+}
+
+.dark{
+  background-color: #1c1c1c;
+  color: var(--white-color);
 }

@@ -3,6 +3,7 @@ import onFormSubmit from './main/searchMovies';
 import refs from './fetch-service/refs';
 import renderMarkupSearch from "./main/renderMarkupSearch";
 import getTrendingMoviesAndRender from "./main/renderMainMarkup";
+import onClickChangeColor from './main/changeColor';
 
 // import { onCreat, creatCards} from './main/renderMainMarkup';
 // onCreat()
