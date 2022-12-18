@@ -71,8 +71,8 @@ input[type="checkbox"]{
   display: block;
   margin-left: auto;
   position: relative;
-  width: 162px;
-  height: 60px;
+  width: 80px;
+  height: 30px;
   border-radius: 50px;
   appearance: none;
   background-color: var(--white-color);
@@ -80,8 +80,8 @@ input[type="checkbox"]{
 
 input[type="checkbox"]::before{
   content: "";
-  width: 50px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
   background-color: #1c1c1c;
   position: absolute;
   top: 5px;
@@ -90,8 +90,15 @@ input[type="checkbox"]::before{
   transition: .5s ease-in-out;
 }
 
+input[type="checkbox"]:checked{
+  background-color: #c9cda8;
+  transition: .5s ease-in;
+}
+
 input[type="checkbox"]:checked:before{
-  transform: translateX(103px);
+  transform: translateX(50px);
+  background-color: var(--white-color);
+
 }
 
 .dark{
