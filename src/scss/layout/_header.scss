@@ -66,3 +66,28 @@ position: relative;
   position: absolute;
   right: 0;
 }
+
+input[type="checkbox"]{
+  position: relative;
+  width: 162px;
+  height: 60px;
+  border-radius: 50px;
+  appearance: none;
+  background-color: var(--white-color);
+}
+
+input[type="checkbox"]::before{
+  content: "";
+  width: 50px;
+  height: 50px;
+  background-color: #1c1c1c;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-radius: 50px;
+  transition: .5s ease-in-out;
+}
+
+input[type="checkbox"]:checked:before{
+  transform: translateX(103px);
+}
