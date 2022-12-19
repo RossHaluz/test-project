@@ -17,6 +17,7 @@
     display: flex;
     padding: 20px;
     background-color: var(--white-color);
+    gap: 40px;
 }
 
 .is-hidden{ 
@@ -26,4 +27,19 @@
 .modal-cover{
     display: flex;
     gap: 20px;
+    flex-direction: column;
+}
+.modal-wrapp{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-list-cover{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.modal__about--text{
+    width: 350px;
 }

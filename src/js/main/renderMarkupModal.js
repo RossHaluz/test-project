@@ -13,8 +13,10 @@ export function renderMarkupModal({ poster_path, title, vote_average, vote_count
       height="500"
       class="modal__img"
     />
+    <div class="modal-wrapp">
     <div class="modal-cover">
     <h2 class="modal__title">${title}</h2>
+    <div class="modal-list-cover">
     <ul class="modal__list list">
       <li class="modal__list--item">Vote / Votes</li>
       <li class="modal__list--item">Popularity</li>
@@ -29,10 +31,12 @@ export function renderMarkupModal({ poster_path, title, vote_average, vote_count
       <li class="modal__option--item">SCIENCE FICTION</li>
     </ul>
     </div>
+    </div>
 
     <h3 class="modal__about">ABOUT</h3>
     <p class="modal__about--text">
       ${overview}
     </p>
+    </div>
     `;   
 }
