@@ -12,10 +12,18 @@
 
 .modal{
     display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
     padding: 20px;
     background-color: var(--white-color);
 }
 
 .is-hidden{ 
     display: none;
+}
+
+.modal-cover{
+    display: flex;
+    gap: 20px;
 }
