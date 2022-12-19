@@ -29,5 +29,5 @@ export function creatPagination() {
   }
 };
 
-const pagination = new Pagination('pagination', options);
+const pagination = new Pagination(refs.pagination, options);
 }
