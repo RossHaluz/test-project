@@ -28,5 +28,6 @@ function onClickCloseBtn() {
 }
 
 function closeModal() {
+    refs.modal.innerHTML = "";
     refs.backdropModal.classList.add('is-hidden');
 }
