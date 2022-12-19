@@ -5,6 +5,7 @@ const refs = {
     changeColor: document.querySelector('.changeColor'),
     backdropModal: document.querySelector('.backdrop'),
     modal: document.querySelector('.modal'),
+    closeBtn: document.querySelector('.modal-close-btn'),
 }
 
 export default refs;

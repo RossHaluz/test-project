@@ -5,7 +5,8 @@ import { onClickFilm } from '../modal/modals'
 
 
 export function renderMarkupModal({ poster_path, title, vote_average, vote_count, popularity, overview }) {
-    refs.modal.innerHTML = `
+  const markup = `
+    <div class="modal-content">
      <img
       src="https://image.tmdb.org/t/p/w500/${poster_path}"
       alt="${title}"
@@ -38,5 +39,8 @@ export function renderMarkupModal({ poster_path, title, vote_average, vote_count
       ${overview}
     </p>
     </div>
-    `;   
+    </div>
+    `; 
+  
+  refs.modal.insertAdjacentHTML('beforeend', markup)
 }

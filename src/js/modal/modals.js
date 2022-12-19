@@ -6,8 +6,10 @@ import {renderMarkupModal} from '../main/renderMarkupModal';
 const fethApi = new FetchFilmsApi()
 
 refs.galeryList.addEventListener('click', onClickFilm);
+refs.closeBtn.addEventListener('click', onClickCloseBtn);
 
-export function onClickFilm(e){
+export function onClickFilm(e) {
+
     const filmId = e.target.dataset.id;
     fethApi.getIdFilm = filmId;
     refs.backdropModal.classList.remove('is-hidden');
@@ -20,6 +22,10 @@ window.addEventListener('click', (e) => {
         closeModal()
     }
 })
+
+function onClickCloseBtn() {
+    closeModal();
+}
 
 function closeModal() {
     refs.backdropModal.classList.add('is-hidden');
