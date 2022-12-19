@@ -6,6 +6,7 @@ import getTrendingMoviesAndRender from "./main/renderMainMarkup";
 import onClickChangeColor from './main/changeColor';
 import { onClickFilm } from './modal/modals';
 import { renderMarkupModal } from './main/renderMarkupModal';
+import { creatPagination } from './paginatin/pagination';
 
 // import { onCreat, creatCards} from './main/renderMainMarkup';
 // onCreat()
