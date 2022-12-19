@@ -23,7 +23,8 @@ function renderMovies(arr) {
         </li>
     `).join('');
   
-   refs.galeryList.insertAdjacentHTML('beforeend', markup)
+  refs.galeryList.insertAdjacentHTML('beforeend', markup)
+ 
 }
 
 getTrendingMoviesAndRender()
