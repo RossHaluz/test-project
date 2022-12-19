@@ -10,6 +10,7 @@ refs.galeryList.addEventListener('click', onClickFilm);
 export function onClickFilm(e){
     const filmId = e.target.dataset.id;
     fethApi.getIdFilm = filmId;
+    refs.backdropModal.classList.remove('is-hidden');
 
     fethApi.getDateilsMovieById().then(data => renderMarkupModal(data))
 }

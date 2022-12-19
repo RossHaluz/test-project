@@ -5,7 +5,7 @@ import { onClickFilm } from '../modal/modals'
 
 
 export function renderMarkupModal({ poster_path, title, vote_average, vote_count, popularity, overview }) {
-    refs.galeryList.innerHTML = `
+    refs.modal.innerHTML = `
      <img
       src="https://image.tmdb.org/t/p/w500/${poster_path}"
       alt="${title}"
