@@ -14,3 +14,13 @@ export function onClickFilm(e){
 
     fethApi.getDateilsMovieById().then(data => renderMarkupModal(data))
 }
+
+window.addEventListener('click', (e) => {
+    if (e.target === refs.backdropModal) {
+        closeModal()
+    }
+})
+
+function closeModal() {
+    refs.backdropModal.classList.add('is-hidden');
+}
