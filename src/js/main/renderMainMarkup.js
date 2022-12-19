@@ -1,5 +1,6 @@
 import fetchFilmsApi from '../fetch-service/fechFilmsApi'
 import refs from '../fetch-service/refs'
+import {creatPagination} from '../paginatin/pagination'
 
 const fetchApi = new fetchFilmsApi()
 
@@ -9,6 +10,7 @@ function getTrendingMoviesAndRender() {
       return
     }
     renderMovies(data.results)
+
   }).catch(err => console.log(err))
 }
 
