@@ -1,5 +1,6 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import FetchFilmsApi from '../fetch-service/fechFilmsApi';
 import refs from "../fetch-service/refs";
 
 export function creatPagination() {
@@ -7,7 +8,6 @@ export function creatPagination() {
   totalItems: 10,
   itemsPerPage: 10,
   visiblePages: 10,
-  page: 1,
   centerAlign: false,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
@@ -29,5 +29,14 @@ export function creatPagination() {
   }
 };
 
-const pagination = new Pagination(refs.pagination, options);
+
+  const pagination = new Pagination(refs.pagination, options);
+
+//   if (visiblePages > 1) {
+//     refs.pagination.style.display = 'block';
+//   } else {
+//     refs.pagination.style.display = 'none';
+//   }
+
+  return pagination;
 }
