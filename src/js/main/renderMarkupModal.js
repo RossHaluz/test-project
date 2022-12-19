@@ -1,11 +1,11 @@
 import fetchFilmsApi from '../fetch-service/fechFilmsApi'
-import refs from '../fetch-service/refs'
+import refs from '../fetch-service/refs';
+import { onClickFilm } from '../modal/modals'
 
-const fetchApi = new fetchFilmsApi();
 
 
-function renderMarkupModal(arr) {
-    const markup = arr.map(({ poster_path, title, vote_average, vote_count, popularity, overview }) => `
+export function renderMarkupModal({ poster_path, title, vote_average, vote_count, popularity, overview }) {
+    refs.galeryList.innerHTML = `
      <img
       src="https://image.tmdb.org/t/p/w500/${poster_path}"
       alt="${title}"
@@ -32,10 +32,5 @@ function renderMarkupModal(arr) {
     <p class="modal__about--text">
       ${overview}
     </p>
-    `).join('');
-
-    
+    `;   
 }
-
-
-
