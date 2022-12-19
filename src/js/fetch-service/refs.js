@@ -6,7 +6,7 @@ const refs = {
     backdropModal: document.querySelector('.backdrop'),
     modal: document.querySelector('.modal'),
     closeBtn: document.querySelector('.modal-close-btn'),
-    pagination: document.getElementById('pagination'),
+    pagination: document.getElementById('tui-pagination-container'),
 }
 
 export default refs;
