@@ -1,6 +1,12 @@
 import fetchFilmsApi from '../fetch-service/fechFilmsApi'
+import { LocalStorageServiceFilms } from '../fetch-service/localStorageService';
 import refs from '../fetch-service/refs';
 import { onClickFilm } from '../modal/modals'
+
+const localStorageServiceFilms = new LocalStorageServiceFilms();
+const filmsStore = localStorageServiceFilms.getFilms();
+
+
 
 
 
