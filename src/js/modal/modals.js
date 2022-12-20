@@ -4,16 +4,19 @@ import FetchFilmsApi from '../fetch-service/fechFilmsApi';
 import {renderMarkupModal} from '../main/renderMarkupModal';
 
 const fethApi = new FetchFilmsApi()
+let filmId;
 
 refs.galeryList.addEventListener('click', onClickFilm);
 refs.closeBtn.addEventListener('click', onClickCloseBtn);
+refs.modalBtnQueue.addEventListener('click', onCliclBtnQueue);
+refs.modalBtnWatched.addEventListener('click', onClickBtnWatched);
 
 export function onClickFilm(e) {
 if (!e.target.classList.contains('galery-list__img')) {
     return;
 }
    refs.modalWrapp.innerHTML = "";
-    const filmId = e.target.dataset.id;
+    filmId = e.target.dataset.id;
     fethApi.getIdFilm = filmId;
     
     refs.backdropModal.classList.remove('is-hidden');
@@ -38,4 +41,12 @@ function onClickCloseBtn() {
 function closeModal() {
     refs.backdropModal.classList.add('is-hidden');
     // refs.closeBtn.removeEventListener('click', onClickCloseBtn);
+}
+
+function onCliclBtnQueue() {
+    
+}
+
+function onClickBtnWatched() {
+    
 }
