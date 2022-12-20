@@ -1,18 +1,9 @@
 import fetchFilmsApi from '../fetch-service/fechFilmsApi'
 import refs from '../fetch-service/refs'
-import {creatPagination} from '../paginatin/pagination'
+import {createPagination} from '../paginatin/pagination'
 
 const fetchApi = new fetchFilmsApi()
 
-function getTrendingMoviesAndRender() {
-  fetchApi.getTrendingMovies().then(data => {
-    if (!data.results.length) {
-      return
-    }
-    renderMovies(data.results)
-
-  }).catch(err => console.log(err))
-}
 
 function renderMovies(arr) {
   const markup = arr.map(({ poster_path, title, release_date, id}) => `
@@ -27,6 +18,25 @@ function renderMovies(arr) {
   
   refs.galeryList.insertAdjacentHTML('beforeend', markup)
  
+}
+
+function getTrendingMoviesAndRender() {
+  fetchApi.getTrendingMovies().then(data => {
+    console.log(data)
+    if (!data.results.length) {
+      return
+    }
+  renderMovies(data.results)
+
+  const pagination = createPagination(data.total_results, data.total_pages);
+  pagination.on('beforeMove', ({ page }) => {
+   refs.galeryList.innerHTML = '';
+    fetchApi.pageNum = page;
+    fetchApi.getTrendingMovies().then(data => {
+      refs.galeryList.insertAdjacentHTML('beforeend', renderMovies(data.results));
+    });
+  });
+}).catch(err => console.log(err))
 }
 
 getTrendingMoviesAndRender()

@@ -7,15 +7,21 @@ const TUI_VISIBLE_PAGES = 5;
 const fetchApi = new FetchFilmsApi
 
 
-export function creatPagination(totalItems) {
-    const options = {
-    totalItems: totalItems,
+export function createPagination(totalItems, visiblePages) {
+  const options = {
     itemsPerPage: 20,
-    visiblePages: 5,
-    centerAlign: true
+    totalItems: totalItems,
+    visiblePages: visiblePages < 5 ? visiblePages : TUI_VISIBLE_PAGES,
   };
 
   const pagination = new Pagination(refs.pagination, options);
 
+  if (visiblePages > 1) {
+    refs.pagination.style.display = 'block';
+  } else {
+    refs.pagination.style.display = 'none';
+  }
+
+  return pagination;
 }
 

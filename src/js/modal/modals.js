@@ -9,12 +9,20 @@ refs.galeryList.addEventListener('click', onClickFilm);
 refs.closeBtn.addEventListener('click', onClickCloseBtn);
 
 export function onClickFilm(e) {
-
+if (!e.target.classList.contains('galery-list__img')) {
+    return;
+}
+   refs.modal.innerHTML = "";
+    refs.closeBtn.classList.remove('is-hidden');
     const filmId = e.target.dataset.id;
     fethApi.getIdFilm = filmId;
     refs.backdropModal.classList.remove('is-hidden');
 
-    fethApi.getDateilsMovieById().then(data => renderMarkupModal(data))
+    fethApi.getDateilsMovieById().then(data => {
+        renderMarkupModal(data)
+    })
+     
+    
 }
 
 window.addEventListener('click', (e) => {
@@ -28,6 +36,6 @@ function onClickCloseBtn() {
 }
 
 function closeModal() {
-    refs.modal.innerHTML = "";
     refs.backdropModal.classList.add('is-hidden');
+    refs.closeBtn.removeEventListener('click', onClickCloseBtn);
 }

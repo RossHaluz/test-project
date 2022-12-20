@@ -18,7 +18,7 @@ async  getMouvieSearch () {
 }
   
   async getTrendingMovies() {
-    const resp = await axios.get(`${this.BASE_URL}/trending/movie/day?api_key=${this.#API_KEY}`);
+    const resp = await axios.get(`${this.BASE_URL}/trending/movie/day?api_key=${this.#API_KEY}&page=${this.page}`);
 
     return resp.data;
   }
@@ -27,6 +27,14 @@ async  getMouvieSearch () {
     const resp = await axios.get(`${this.BASE_URL}/movie/${this.id}?api_key=${this.#API_KEY}&language=en-US`)
 
     return resp.data;
+  }
+
+  get pageNum() {
+    return this.page; 
+  }
+
+  set pageNum(newPage) {
+    this.page = newPage;
   }
   
 
