@@ -12,8 +12,7 @@ export function onClickFilm(e) {
 if (!e.target.classList.contains('galery-list__img')) {
     return;
 }
-   refs.modal.innerHTML = "";
-    refs.closeBtn.classList.remove('is-hidden');
+   refs.modalWrapp.innerHTML = "";
     const filmId = e.target.dataset.id;
     fethApi.getIdFilm = filmId;
     refs.backdropModal.classList.remove('is-hidden');
@@ -37,5 +36,5 @@ function onClickCloseBtn() {
 
 function closeModal() {
     refs.backdropModal.classList.add('is-hidden');
-    refs.closeBtn.removeEventListener('click', onClickCloseBtn);
+    // refs.closeBtn.removeEventListener('click', onClickCloseBtn);
 }

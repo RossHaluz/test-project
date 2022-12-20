@@ -25,9 +25,9 @@ function onFormSubmit(e) {
             refs.galeryList.innerHTML = '';
             apiFetch.pageNum = page;
         apiFetch.getMouvieSearch().then(data => {
-          refs.galeryList.innerHTML = renderMarkupSearch(data.results);
-          scrollOnTop();
+        refs.galeryList.innerHTML = renderMarkupSearch(data.results);
         });
+      
       });
    }).catch(err => console.log(err))
 

@@ -32,9 +32,10 @@ function getTrendingMoviesAndRender() {
   pagination.on('beforeMove', ({ page }) => {
    refs.galeryList.innerHTML = '';
     fetchApi.pageNum = page;
-    fetchApi.getTrendingMovies().then(data => {
+     fetchApi.getTrendingMovies().then(data => {
       refs.galeryList.insertAdjacentHTML('beforeend', renderMovies(data.results));
-    });
+     });
+    
   });
 }).catch(err => console.log(err))
 }

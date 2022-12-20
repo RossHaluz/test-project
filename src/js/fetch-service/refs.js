@@ -7,6 +7,7 @@ const refs = {
     modal: document.querySelector('.modal'),
     closeBtn: document.querySelector('.modal-close-btn'),
     pagination: document.getElementById('pagination'),
+    modalWrapp: document.querySelector('.modal-wrapp'),
 }
 
 export default refs;

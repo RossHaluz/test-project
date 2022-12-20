@@ -11,10 +11,10 @@ export function createPagination(totalItems, visiblePages) {
   const options = {
     itemsPerPage: 20,
     totalItems: totalItems,
-    visiblePages: 5,
+    visiblePages: visiblePages < 5 ? visiblePages : TUI_VISIBLE_PAGES,
     centerAlign: true
   };
-  // visiblePages < 5 ? visiblePages : TUI_VISIBLE_PAGES
+  
 
   const pagination = new Pagination(refs.pagination, options);
 

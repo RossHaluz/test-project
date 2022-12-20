@@ -42,5 +42,5 @@ export function renderMarkupModal({ poster_path, title, vote_average, vote_count
     </div>
     `; 
   
-  refs.modal.insertAdjacentHTML('beforeend', markup)
+  refs.modalWrapp.insertAdjacentHTML('beforeend', markup)
 }
