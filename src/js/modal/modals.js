@@ -15,6 +15,7 @@ if (!e.target.classList.contains('galery-list__img')) {
    refs.modalWrapp.innerHTML = "";
     const filmId = e.target.dataset.id;
     fethApi.getIdFilm = filmId;
+    
     refs.backdropModal.classList.remove('is-hidden');
 
     fethApi.getDateilsMovieById().then(data => {

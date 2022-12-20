@@ -41,10 +41,6 @@ export function renderMarkupModal({ poster_path, title, vote_average, vote_count
     <p class="modal__about--text">
       ${overview}
     </p>
-      <div class="modal__btn">
-      <button type="button" class="">Add to watched</button>
-      <button type="button">Ad to queue</button>
-      </div>
     </div>
     </div>
     `; 
