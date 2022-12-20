@@ -1,5 +1,6 @@
 import FetchFilmsApi from '../fetch-service/fechFilmsApi';
 import refs from '../fetch-service/refs';
+import { createPagination } from '../paginatin/pagination';
 import renderMarkupSearch from './renderMarkupSearch';
 
 const apiFetch = new FetchFilmsApi()
@@ -18,6 +19,16 @@ function onFormSubmit(e) {
             return
         }
         renderMarkupSearch(data.results)
+        const pagination = createPagination(data.total_results, data.total_pages);
+
+        pagination.on('beforeMove', ({ page }) => {
+            refs.galeryList.innerHTML = '';
+            apiFetch.pageNum = page;
+        apiFetch.getMouvieSearch().then(data => {
+          refs.galeryList.innerHTML = renderMarkupSearch(data.results);
+          scrollOnTop();
+        });
+      });
    }).catch(err => console.log(err))
 
 }
