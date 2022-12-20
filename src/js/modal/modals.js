@@ -44,7 +44,7 @@ function closeModal() {
 }
 
 function onCliclBtnQueue() {
-    
+    const getFilms = localStorage.getItem('films', filmId)
 }
 
 function onClickBtnWatched() {
