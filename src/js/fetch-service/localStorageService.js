@@ -1,4 +1,8 @@
-export class LocalStorageServiceFilms {
+import getTrendingMoviesAndRender from "../main/renderMainMarkup";
+import FetchFilmsApi from "./fechFilmsApi";
+
+
+class LocalStorageServiceFilms {
     constructor() {
         this.keyName = 'films';
     }
@@ -32,3 +36,15 @@ export class LocalStorageServiceFilms {
         }
     }
 }
+
+
+const localStorageServiceFilms = new LocalStorageServiceFilms();
+localStorageServiceFilms.setFilms('el1')
+localStorageServiceFilms.setFilms('el2')
+
+
+
+
+
+
+export default LocalStorageServiceFilms

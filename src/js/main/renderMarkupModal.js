@@ -3,9 +3,6 @@ import { LocalStorageServiceFilms } from '../fetch-service/localStorageService';
 import refs from '../fetch-service/refs';
 import { onClickFilm } from '../modal/modals'
 
-const localStorageServiceFilms = new LocalStorageServiceFilms();
-const filmsStore = localStorageServiceFilms.getFilms();
-
 
 
 
@@ -44,6 +41,10 @@ export function renderMarkupModal({ poster_path, title, vote_average, vote_count
     <p class="modal__about--text">
       ${overview}
     </p>
+      <div class="modal__btn">
+      <button type="button" class="">Add to watched</button>
+      <button type="button">Ad to queue</button>
+      </div>
     </div>
     </div>
     `; 
