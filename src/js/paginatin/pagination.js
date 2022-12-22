@@ -18,12 +18,6 @@ export function createPagination(totalItems, visiblePages) {
 
   const pagination = new Pagination(refs.pagination, options);
 
-  // if (visiblePages > 1) {
-  //   refs.pagination.style.display = 'block';
-  // } else {
-  //   refs.pagination.style.display = 'none';
-  // }
-
   return pagination;
 }
 

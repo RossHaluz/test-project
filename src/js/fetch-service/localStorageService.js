@@ -1,14 +1,17 @@
 import getTrendingMoviesAndRender from "../main/renderMainMarkup";
 import FetchFilmsApi from "./fechFilmsApi";
+import refs from "./refs";
 
 
-class LocalStorageServiceFilms {
+export class LocalStorageServiceFilms {
     constructor() {
-        this.keyName = 'films';
+        this.keyNameWached = 'films-watched';
+        this.keyNameQueue = 'films-queue';
+        this.idFilm = null;
     }
 
     getFilms() {
-        const filmsLocalStorage = localStorage.getItem(this.keyName)
+        const filmsLocalStorage = localStorage.getItem(this.keyNameWached)
 
         if (filmsLocalStorage !== null) {
             return JSON.parse(filmsLocalStorage)
@@ -28,23 +31,49 @@ class LocalStorageServiceFilms {
             films.splice(index, 1)
         }
 
-        localStorage.setItem(this.keyName, JSON.stringify(films));
+        localStorage.setItem(this.keyNameWached, JSON.stringify(films));
 
         return {
             pushFilm,
             films,
         }
     }
+
+     getQueueFilms() {
+        const filmsLocalStorage = localStorage.getItem(this.keyNameQueue)
+
+        if (filmsLocalStorage !== null) {
+            return JSON.parse(filmsLocalStorage)
+        }
+
+        return [];
+    }
+
+    setQueueMovie(id) {
+        let films = this.getQueueFilms();
+        let pushFilm = false;
+        const index = films.indexOf(id);
+        if (index === -1) {
+            films.push(id);
+            pushFilm = true;
+        } else {
+            films.splice(index, 1)
+        }
+
+        localStorage.setItem(this.keyNameQueue, JSON.stringify(films));
+
+        return {
+            pushFilm,
+            films,
+        }
+    }
+
+    get filmByID() {
+        return this.idFilm;
+    }
+
+    set filmByID(newIdFilm) {
+        this.idFilm = newIdFilm;
+    }
 }
 
-
-const localStorageServiceFilms = new LocalStorageServiceFilms();
-localStorageServiceFilms.setFilms('el1')
-localStorageServiceFilms.setFilms('el2')
-
-
-
-
-
-
-export default LocalStorageServiceFilms
