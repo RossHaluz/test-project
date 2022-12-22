@@ -1,7 +1,12 @@
 .library-list{
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
 
-}
 
+    
+        @include mq(desk) {
+            --items: 4;
+        }
+
+
+    }
