@@ -25,6 +25,7 @@ if (!e.target.classList.contains('galery-list__img')) {
     fethApi.getIdFilm = filmId;
     
     refs.backdropModal.classList.remove('is-hidden');
+    document.body.classList.add('no-scroll');
 
     fethApi.getDateilsMovieById().then(data => {
         renderMarkupModal(data)
@@ -45,6 +46,7 @@ function onClickCloseBtn() {
 
 function closeModal() {
     refs.backdropModal.classList.add('is-hidden');
+    document.body.classList.remove('no-scroll');
 }
 
 export function onClickBtnWatched() {
