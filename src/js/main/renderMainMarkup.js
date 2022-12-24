@@ -27,16 +27,6 @@ function getTrendingMoviesAndRender() {
       return
     }
   renderMovies(data.results)
-
-  const pagination = createPagination(data.total_results, data.total_pages);
-  pagination.on('beforeMove', ({ page }) => {
-   refs.galeryList.innerHTML = '';
-    fetchApi.pageNum = page;
-     fetchApi.getTrendingMovies().then(data => {
-      refs.galeryList.insertAdjacentHTML('beforeend', renderMovies(data.results));
-     });
-    
-  });
 }).catch(err => console.log(err))
 }
 
