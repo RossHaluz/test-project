@@ -21,7 +21,7 @@ export function onClickBtnNext() {
 
 function onClickBtnPrev() {
   if (currentPage === 1) {
-    return;
+    return
   }
   refs.galeryList.innerHTML = "";
   currentPage -= 1;
