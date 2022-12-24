@@ -3,21 +3,26 @@ import 'tui-pagination/dist/tui-pagination.css';
 import FetchFilmsApi from '../fetch-service/fechFilmsApi';
 import refs from "../fetch-service/refs";
 import getTrendingMoviesAndRender from '../main/renderMainMarkup'
-const TUI_VISIBLE_PAGES = 5;
-const fetchApi = new FetchFilmsApi
+
+const fetchApi = new FetchFilmsApi;
+let currentPage = 0;
+
+refs.paginationItemNext.addEventListener('click', onClickBtnNext);
+refs.paginationItemPrev.addEventListener('click', onClickBtnPrev);
 
 
-export function createPagination(totalItems, visiblePages) {
-  const options = {
-    itemsPerPage: 20,
-    totalItems: totalItems,
-    visiblePages: visiblePages < 5 ? visiblePages : TUI_VISIBLE_PAGES,
-    centerAlign: true
-  };
+// export function createPagination(totalItems) {
   
+// }
 
-  const pagination = new Pagination(refs.pagination, options);
+function onClickBtnNext() {
+  currentPage += 1;
+  refs.paginationListItemPage.innerHTML = currentPage;
+  console.log(currentPage)
+}
 
-  return pagination;
+function onClickBtnPrev() {
+  currentPage -= 1;
+  refs.paginationListItemPage.innerHTML = currentPage;
 }
 

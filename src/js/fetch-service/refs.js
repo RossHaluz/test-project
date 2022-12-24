@@ -17,8 +17,9 @@ const refs = {
     libraryBtnWatched: document.querySelector('.header__library--btn-watched'),
     libraryBtnQueue: document.querySelector('.header__library--btn-queue'),
     libraryList: document.querySelector('.library-list'),
-
-
+    paginationItemPrev: document.querySelector('.pagination__item-prev'),
+    paginationItemNext: document.querySelector('.pagination__item-next'),
+    paginationListItemPage: document.querySelector('.pagination-list__item-page'),
 }
 
 export default refs;
