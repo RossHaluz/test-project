@@ -6,7 +6,8 @@ import getTrendingMoviesAndRender from "./main/renderMainMarkup";
 import onClickChangeColor from './main/changeColor';
 import { onClickFilm } from './modal/modals';
 import { renderMarkupModal } from './main/renderMarkupModal';
-import { onClickBtnNext } from './paginatin/pagination';
+import { onClickBtnNext } from "./paginatin/pagination";
+
 
 // createPagination() 
 

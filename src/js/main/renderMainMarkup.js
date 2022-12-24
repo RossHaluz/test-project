@@ -4,7 +4,6 @@ import {createPagination} from '../paginatin/pagination'
 
 const fetchApi = new fetchFilmsApi()
 
-
 function renderMovies(arr) {
   const markup = arr.map(({ poster_path, title, release_date, id}) => `
      <li class="galery-list__item card-set-iteam">
