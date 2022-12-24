@@ -20,8 +20,14 @@ export function onClickBtnNext() {
 }
 
 function onClickBtnPrev() {
+  if (currentPage === 1) {
+    return;
+  }
+  refs.galeryList.innerHTML = "";
   currentPage -= 1;
+  fetchApi.pageNum = currentPage;
   refs.paginationListItemPage.innerHTML = currentPage;
+  fetchApi.getTrendingMovies().then(data => creatMarkupPagination(data.results))
 }
 
 function creatMarkupPagination(arr) {
