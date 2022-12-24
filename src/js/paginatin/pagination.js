@@ -12,6 +12,7 @@ refs.paginationItemPrev.addEventListener('click', onClickBtnPrev);
 
 
 export function onClickBtnNext() {
+  refs.galeryList.innerHTML = "";
   currentPage += 1;
   fetchApi.pageNum = currentPage;
   refs.paginationListItemPage.innerHTML = currentPage;
